@@ -66,8 +66,9 @@ window.onfocus=function() {
       this.chatBox = this.$elem.find('#msgs');
       this.userName = this.$elem.find('#username');
       this.form = this.$elem.find('form#chat');
-      this.userList = this.$elem.find('#chat-clients ul');   
-      this.disconnectBtn = this.$elem.find('#disconnect');   
+      this.userList = this.$elem.find('#chat-clients ul'); 
+      this.rooms = $('#rooms'); 
+      this.disconnectBtn = $('#disconnect');   
       
      }
   
@@ -87,6 +88,7 @@ window.onfocus=function() {
                     socket = this.socket;               
                     
                     this.socket.on('connecting', function () {
+                    	log('connecting'); 
                         $('#loading').show();
                     });
                     
@@ -310,14 +312,15 @@ window.onfocus=function() {
        // update the room
         , updateRooms: function(rooms, current_room, clients) {
             log(clients);
-            $('#rooms').empty();                  
+            this.rooms.empty();      
+            var theRooms = this.rooms;
             $.each(rooms, function(key, value) {
                 if(value == current_room){
-                    $('#rooms').append(' <li class="active"><a href="#" tabindex="-1" role="menuitem">'+ value + '</a></li>');
+                	theRooms.append(' <li class="active"><a href="#" tabindex="-1" role="menuitem">'+ value + '</a></li>');
                 }
                 else {
-                    $('#rooms').append(' <li><a href="#" tabindex="-1" role="menuitem" id="'+ value + '">'+ value + '</a></li>');                            
-                    $('#rooms #'+ value).on('click',function(event) { 
+                	theRooms.append(' <li><a href="#" tabindex="-1" role="menuitem" id="'+ value + '">'+ value + '</a></li>');                            
+                	theRooms.one('click', $('#'+ value),function(event) { 
                         event.stopPropagation();
                         socket.emit('switchRoom', this.text);
                         return false;

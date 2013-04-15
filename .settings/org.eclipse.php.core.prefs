@@ -1,4 +1,6 @@
-#Wed Mar 27 18:13:55 CET 2013
+#Mon Apr 15 23:34:03 CEST 2013
 eclipse.preferences.version=1
 include_path=0;/ZS chat
+org.eclipse.php.core.phpForamtterIndentationSize=4
+org.eclipse.php.core.phpForamtterUseTabs=false
 use_asp_tags_as_php=false

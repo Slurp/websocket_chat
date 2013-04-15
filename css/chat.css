@@ -66,7 +66,23 @@ textarea {
    ========================================================================== */
 
 
+#loading {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.31);
+    height: 32px;
+    left: 50%;
+    margin: -16px 0 0 -16px;
+    position: fixed;
+    top: 50%;
+    width: 32px;
+    z-index: 9999;
+}
 
+.chatroom {
+    max-height: 400px;
+    overflow: auto;
+}
 
 
 

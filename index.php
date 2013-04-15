@@ -39,11 +39,13 @@
             <div class="span3">
               <div class="well sidebar-nav">
                 <ul class="nav nav-list">
-                  <li class="nav-header">Bootstrap</li>
+                  <li class="nav-header">Bootstrap (css, javascript)</li>
                   <li><a href="http://twitter.github.com/bootstrap/index.html">Main</a></li>                 
                   <li class="nav-header">Websocket</li>
                   <li><a href="http://socket.io">http://socket.io</a></li>      
-                  <li><a href="https://github.com/learnboost/socket.io">learnboost</a>          
+                  <li><a href="https://github.com/learnboost/socket.io">learnboost socket.io</a>
+                   <li><a href="https://github.com/LearnBoost/websocket.io">learnboost websocket.io</a>
+                          
                   <li class="nav-header">Node.js</li>                  
                 </ul>
               </div><!--/.well -->
@@ -75,24 +77,37 @@
                   
                   </div>  
                   <div class="row-fluid">
-                   <div id="form" class="span12">
-                        <form id="chat" class="form-inline">
-                            <label for="username">Username: </label>
-                                <input id="username" name="username" type="text" placeholder="Username">
-                            <label for="msg"> Message: </label>
-                            <div class="input-append">
-                                <input id="msg" type="text" class="name="message" placeholder="Message"/>
-                                <button class="btn" type="submit">Sumbit</button>
-                            </div>    
-                                <br/>
-                        </form>
-                        <button id="disconnect" class="btn btn-danger">Disconnect</button>
-                   </div>
-                  
-                 
-                  
+                       <div id="form" class="span12">
+                            <form id="chat" class="form-inline">
+                                <label for="username">Username: </label>
+                                    <input id="username" name="username" type="text" placeholder="Username">
+                                <label for="msg"> Message: </label>
+                                <div class="input-append">
+                                    <input id="msg" type="text" class="name="message" placeholder="Message"/>
+                                    <button class="btn" type="submit">Sumbit</button>
+                                </div>    
+                                    <br/>
+                            </form>
+                            <button id="disconnect" class="btn btn-danger">Disconnect</button>
+                       </div>
                   </div>
-                         
+                  <!-- extra html for client -->
+                  <div class="hide" id="loading">
+                        <img src="img/loading.gif">
+                  </div>    
+                  <!-- modal for messages -->
+                     <div id="chatModal" class="modal hide fade">
+                        <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3>Chat server</h3>
+                        </div>
+                        <div class="modal-body">
+                        <p>One fine body…</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#" data-dismiss="modal" class="btn">Close</a>
+                        </div>
+                     </div>      
              </div>
           </div><!--/row-->
             
@@ -100,10 +115,9 @@
     
           <footer>
             <p>&copy; Zwartschaap.net</p>
-          </footer>
-    
+          </footer>    
         </div>
-       
+        <!-- Javascript -->       
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
          <!-- socket.io -->

@@ -252,7 +252,7 @@ window.onfocus=function() {
                   }
                   this.socket.emit('adduser',this.userName.val()); 
               }
-  
+           
         , displayMessage: function(msg,isHistory = false) {        
             if(typeof msg != "object")
             {
@@ -261,14 +261,14 @@ window.onfocus=function() {
             } 
             hmtlTitleFlasher('New message!');
              this.chatBox.append(function() {
-                 var div = $('<div class="row-fluid"></div>');
+                 var messageBlock = $('<p></p>');
                  if(true == isHistory) {
-                     div.addClass('muted');
+                	 messageBlock.addClass('muted');
                  }
-                 div.html('<b>' + msg.username + ':</b> ' + msg.message);               
-                 return div;
+                 messageBlock.html('<span class="msg-block"><strong>' + msg.username + '</strong><span class="msg">' + msg.message + '</span></span>');               
+                 return messageBlock;
              });
-             this.chatBox[0].scrollTop =  this.chatBox[0].scrollHeight;
+             this.chatBox.scrollTop =  this.chatBox.scrollHeight;
             
         }
         
@@ -320,8 +320,9 @@ window.onfocus=function() {
                 }
                 else {
                 	theRooms.append(' <li><a href="#" tabindex="-1" role="menuitem" id="'+ value + '">'+ value + '</a></li>');                            
-                	theRooms.one('click', $('#'+ value),function(event) { 
+                	$('#'+ value).one('click',function(event) { 
                         event.stopPropagation();
+                        log(this);
                         socket.emit('switchRoom', this.text);
                         return false;
                     });

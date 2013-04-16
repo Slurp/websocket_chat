@@ -53,44 +53,59 @@
             <div class="span9">
               <h1>Socket.io chat client</h1>
               <div class="row-fluid" data-chat='init'>
-                 
-                  
-                        <div class="dropdown btn-group pull-right">
-                            <button class="btn btn-primary"> Rooms</button>
-                            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                            <span class="caret"></span>
-                            </button>
-                          
-                           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" id="rooms">
-                           <!-- populated by the chat client -->                            
-                           </ul>
-                       </div>
+                    
                        
-               
-                  <div class="row-fluid">
-                      <div id="msgs" class="span10 chatroom well"></div>
-                      <div id="chat-clients" class="span2">
-                          <ul class="nav nav-list">
-                          <li class="nav-header">Other users</li>
-                          </ul>
-                      </div>
-                  
+                   <div class="chat-window">
+						<div class="chat-title">
+							<span class="icon">
+								<i class="icon-comment"></i>
+							</span>
+							<h5>Support chat</h5>
+							<div class="dropdown btn-group pull-right">
+                                <button class="btn btn-primary"> Rooms</button>
+                                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                                </button>
+                              
+                               <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" id="rooms">
+                               <!-- populated by the chat client -->                            
+                               </ul>
+                           </div>
+						</div>
+						<div class="chat-inner nopadding">
+							<div class="chat-content panel-left">                   
+							   <div id="chat-messages" class="chat-messages">
+									<div id="msgs" class="chatroom ">
+									
+								    </div>
+							   </div>									
+							   <div class="chat-message well ">
+									<div id="form">
+                                        <form id="chat" class="form-inline">
+                                            <label for="username">Username: </label>
+                                                <input id="username" name="username" type="text" placeholder="Username">
+                                            <label for="msg"> Message: </label>
+                                            <div class="input-append">
+                                                <input id="msg" type="text" class="name="message" placeholder="Message"/>
+                                                <button class="btn" type="submit">Sumbit</button>
+                                            </div>                                                    
+                                        </form>
+                                   </div>						                  
+							   </div>   
+							    <button id="disconnect" class="btn btn-danger pull-right">Disconnect</button>                
+							</div>
+							<div class="chat-users panel-right">
+								<div class="panel-title"><h5>Online Users</h5></div>
+								<div id="chat-clients" class="panel-content nopadding">
+									<ul class="contact-list">
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
                   </div>  
-                  <div class="row-fluid">
-                       <div id="form" class="span12">
-                            <form id="chat" class="form-inline">
-                                <label for="username">Username: </label>
-                                    <input id="username" name="username" type="text" placeholder="Username">
-                                <label for="msg"> Message: </label>
-                                <div class="input-append">
-                                    <input id="msg" type="text" class="name="message" placeholder="Message"/>
-                                    <button class="btn" type="submit">Sumbit</button>
-                                </div>    
-                                    <br/>
-                            </form>
-                            <button id="disconnect" class="btn btn-danger">Disconnect</button>
-                       </div>
-                  </div>
+                 
                   <!-- extra html for client -->
                   <div class="hide" id="loading">
                         <img src="img/loading.gif">
@@ -102,7 +117,7 @@
                         <h3>Chat server</h3>
                         </div>
                         <div class="modal-body">
-                        <p>One fine body…</p>
+                      
                         </div>
                         <div class="modal-footer">
                             <a href="#" data-dismiss="modal" class="btn">Close</a>
